@@ -1,0 +1,148 @@
+<div class="text-center">
+  <h1><b>TALLERES MATEMÁTICAS</b></h1>
+</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>TALLERES MATEMÁTICAS</title>
+ 
+  <!-- Enlaces a los archivos CSS de Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    body{
+    font-family: Verdana, Tahoma, sans-serif;
+    background-image: linear-gradient(to right, rgba(20, 127, 220, 0.5), rgb(144, 85, 125));
+    }
+    .caja{
+    background-color: rgba(172, 163, 163, 0.315);
+    padding: 15px;
+    border-radius: 15px;  
+}
+
+
+fieldset{
+    border: 3px solid rgba(154, 30, 255, 0.911);
+}
+legend{
+    border: 1px solid rgba(238, 224, 237, 0.384);
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(245, 248, 248, 0.788);
+    border-radius: 8px;
+   
+}
+.inputBox{
+    position: relative;
+
+}
+
+</style>
+<script src = "./main.js">
+  
+</script>
+
+</head>
+<body>
+  <div class="container mt-5 ">
+   
+    
+    
+    
+    <hr>
+    
+    <!-- Formulario para ingresar datos del ICFES -->
+    <div class="caja">
+      <form id="icfesForm"  action="D:/icfes/src/app/pages/dashboard/dashboard.component.html" method="post" >
+       <h3>Detalles del Taller: </h3> 
+        
+        <div class="form-group" >
+          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el título del Taller"
+        
+            onchange="actualizarPuntaje();" required>
+          <div class="valid-feedback"> Validación exitosa </div>
+          <div class="invalid-feedback"> Campo requerido </div>
+        </div>
+
+       
+        
+
+      <div class="form-group" >
+          <input type="text" class="form-control" id="apellido" placeholder="Ingrese el número total de preguntas"
+         
+            onchange="actualizarPuntaje();" required>
+          <div class="valid-feedback"> Validación exitosa </div>
+          <div class="invalid-feedback"> Campo requerido </div>
+        </div>
+        <div class="form-group" >
+          <input type="number"  min="0" max="100" class="form-control" id="LecturaCritica" placeholder="Ingrese el limite de tiempo para realizar el Taller"
+            
+            onchange="actualizarPuntaje();" required>
+          <div class="valid-feedback"> Validación exitosa </div>
+          <div class="invalid-feedback"> Campo requerido </div>
+        </div>
+        <div class="form-group" >
+          <input type="date" class="form-control" id="apellido" placeholder="Fecha del Taller"
+       
+            onchange="actualizarPuntaje();" required>
+          <div class="valid-feedback"> Validación exitosa </div>
+          <div class="invalid-feedback"> Campo requerido </div>
+        </div>
+        <div class="form-group" >
+          <input type="text" class="form-control" id="apellido" placeholder="Descripción del Taller"
+       
+            onchange="actualizarPuntaje();" required>
+          <div class="valid-feedback"> Validación exitosa </div>
+          <div class="invalid-feedback"> Campo requerido </div>
+        </div>
+
+        
+        
+      <div class="text-center">
+        <button type="submit" class="btn btn-secondary">Crear Taller</button>
+       
+      </div>
+      </form>
+    </div>
+    
+  </div>
+
+  <!-- Enlaces a los archivos JS de Bootstrap y script personalizado -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Script para gestionar la lógica de inicio de sesión y cambio de formularios
+    $(document).ready(function(){
+      $('#loginForm').submit(function(e){
+        e.preventDefault();
+        var usuario = $('#usuario').val();
+        // Aquí se puede agregar lógica para verificar el usuario y contraseña
+        // Por ahora, simplemente mostramos el segundo formulario si se ingresa algo en el campo usuario
+        //  style="width: 150px; height:20px;"
+
+      //  .sombra{
+     //     box-shadow: 2px 2px 2px black inset;
+     // }
+      
+        if(usuario !== ''){
+          $('#usuarioActivo').text(usuario);
+          $('#loginForm').hide();
+          $('#icfesForm').show();
+        }
+      });
+
+      $('#cerrarSesion').click(function(e){
+        e.preventDefault();
+        $('#usuario').val('');
+        $('#usuarioActivo').text('');
+        $('#loginForm').show();
+        $('#icfesForm').hide();
+      });
+    });
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Formulario ICFES</title>
+  <!-- Enlaces a los archivos CSS de Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    body{
+    font-family: Verdana, Tahoma, sans-serif;
+    background-image: linear-gradient(to right, rgba(20, 127, 220, 0.5), rgb(144, 85, 125));
+    }
+    .caja{
+    background-color: rgba(172, 163, 163, 0.315);
+    padding: 15px;
+    border-radius: 15px;  
+}
+
+
+fieldset{
+    border: 3px solid rgba(154, 30, 255, 0.911);
+}
+legend{
+    border: 1px solid rgba(238, 224, 237, 0.384);
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(245, 248, 248, 0.788);
+    border-radius: 8px;
+   
+}
+.inputBox{
+    position: relative;
+
+}
+
+</style>
+<script src = "./main.js">
+  
+</script>
+
+</head>
+<body>
+  <div class="container mt-5 ">
+    <div class="text-center">
+      <h2><b>Planeación de simulacros</b></h2></div>
+   
+    
+     
+    <form id="loginForm">
+        <div class="text-center">   <h4>Iniciar Sesión</h4></div>
+      <div class="form-group">
+        <label for="usuario">Usuario:</label>
+        <input type="text" class="form-control" id="usuario" placeholder="Ingrese su usuario">
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+    
+    <hr>
+    
+
+    
+  </div>
+
+  <!-- Enlaces a los archivos JS de Bootstrap y script personalizado -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Script para gestionar la lógica de inicio de sesión y cambio de formularios
+    $(document).ready(function(){
+      $('#loginForm').submit(function(e){
+        e.preventDefault();
+        var usuario = $('#usuario').val();
+        // Aquí se puede agregar lógica para verificar el usuario y contraseña
+        // Por ahora, simplemente mostramos el segundo formulario si se ingresa algo en el campo usuario
+        //  style="width: 150px; height:20px;"
+
+      //  .sombra{
+     //     box-shadow: 2px 2px 2px black inset;
+     // }
+      
+        if(usuario !== ''){
+          $('#usuarioActivo').text(usuario);
+          $('#loginForm').hide();
+          $('#icfesForm').show();
+        }
+      });
+
+      $('#cerrarSesion').click(function(e){
+        e.preventDefault();
+        $('#usuario').val('');
+        $('#usuarioActivo').text('');
+        $('#loginForm').show();
+        $('#icfesForm').hide();
+      });
+    });
+    
+  </script>
+</body>
+</html>
+
+
+
+
